@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
     {
         Uri uri = Uri.parse("geo:0,0?q=桃園市楊梅區幼獅路二段3號");
         Intent it = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(it);
+    }
+
+    public void click4(View v)
+    {
+        EditText ed = (EditText) findViewById(R.id.editText);
+        String str = ed.getText().toString();
+
+        Intent it = new Intent(MainActivity.this, Main2Activity.class);
+        it.putExtra("mydata", str);
         startActivity(it);
     }
 }
